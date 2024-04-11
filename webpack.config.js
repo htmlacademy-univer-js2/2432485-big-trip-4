@@ -40,3 +40,42 @@ module.exports = {
     ],
   },
 };
+
+
+
+
+
+
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  eat() {
+    // общее пищевое поведение
+  }
+}
+
+class FlyingAnimal extends Animal {
+  fly() {
+    // общее поведение полета
+  }
+}
+
+class Bird extends FlyingAnimal {
+  chirp() {
+    // общее поведение щебетания
+  }
+}
+
+class Bat extends FlyingAnimal {
+  echolocate() {
+    // общее поведение эхолокации
+  }
+}
+
+
+
+
+

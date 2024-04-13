@@ -36,46 +36,9 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      }, {
+        test: /\.css$/i,        use: ['style-loader', 'css-loader']
       },
     ],
   },
 };
-
-
-
-
-
-
-class Animal {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  eat() {
-    // общее пищевое поведение
-  }
-}
-
-class FlyingAnimal extends Animal {
-  fly() {
-    // общее поведение полета
-  }
-}
-
-class Bird extends FlyingAnimal {
-  chirp() {
-    // общее поведение щебетания
-  }
-}
-
-class Bat extends FlyingAnimal {
-  echolocate() {
-    // общее поведение эхолокации
-  }
-}
-
-
-
-
-

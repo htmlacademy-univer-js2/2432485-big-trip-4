@@ -29,4 +29,3 @@ function getDestinations() {
 }
 
 export { getRandomDestination, getDestinations };
-

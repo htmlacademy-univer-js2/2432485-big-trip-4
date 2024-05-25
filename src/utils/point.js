@@ -1,46 +1,48 @@
-import dayjs from 'dayjs';
-import duration from 'dayjs/plugin/duration';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-dayjs.extend(isSameOrBefore);
-dayjs.extend(isSameOrAfter);
-dayjs.extend(duration);
+import { getRandomArrayElement } from '../utils/common.js';
+import { POINT_TYPES } from '../const.js';
 
-const TimePeriods = {
-  minInHour: 60,
-  minInDay: 1440,
-  minInYear: 525600
-};
+const points = [{
+  basePrice: 1000,
+  dateFrom: '2019-07-10T12:55:56.845Z',
+  dateTo: '2019-07-10T13:35:56.845Z',
+  destination: 0,
+  isFavorite: true,
+  offers: ['b4c3e4e6-9053-42ce-b747-e281314baa31',
+    'b4c3e4e6-9053-42ce-b747-e281314baa33'],
+  type: POINT_TYPES[1]
+}, {
+  basePrice: 1100,
+  dateFrom: '2020-08-10T10:25:56.845Z',
+  dateTo: '2020-08-10T15:55:56.845Z',
+  destination: 1,
+  isFavorite: false,
+  offers: [],
+  type: POINT_TYPES[0]
+}, {
+  basePrice: 1200,
+  dateFrom: '2021-08-05T10:25:56.845Z',
+  dateTo: '2021-08-08T15:55:56.845Z',
+  destination: 2,
+  isFavorite: false,
+  offers: [],
+  type: POINT_TYPES[2]
+}, {
+  basePrice: 1300,
+  dateFrom: '2020-08-05T10:25:56.845Z',
+  dateTo: '2021-08-08T15:55:56.845Z',
+  destination: 3,
+  isFavorite: true,
+  offers: [],
+  type: POINT_TYPES[3]
+}];
 
-function humanizeDate(date, format) {
-  return date ? dayjs(date).format(format) : dayjs().format(format);
+function getRandomPoint() {
+  return {...getRandomArrayElement(points),
+    id: `${Math.random() * Math.random()}`};
 }
 
-function getDuration(dateFrom, dateTo) {
-  const timeDiff = dayjs(dateTo).diff(dayjs(dateFrom), 'minute');
-
-  if (timeDiff >= TimePeriods.minInYear) {
-    return dayjs.duration(timeDiff, 'minutes').format('YY[Y] DD[D] HH[H] mm[M]');
-  } else if (timeDiff >= TimePeriods.minInDay) {
-    return dayjs.duration(timeDiff, 'minutes').format('DD[D] HH[H] mm[M]');
-  } else if (timeDiff >= TimePeriods.minInHour) {
-    return dayjs.duration(timeDiff, 'minutes').format('HH[H] mm[M]');
-  } else {
-    return dayjs.duration(timeDiff, 'minutes').format('mm[M]');
-  }
+function getPoints() {
+  return points;
 }
 
-function isFutureDate(dateFrom) {
-  return dayjs(dateFrom).isAfter(dayjs());
-}
-
-function isPastDate(dateTo) {
-  return dayjs(dateTo).isBefore(dayjs());
-}
-
-function isPresentDate(dateFrom, dateTo) {
-  const now = dayjs();
-  return now.isSameOrAfter(dateFrom) && now.isSameOrBefore(dateTo);
-}
-
-export { humanizeDate, getDuration, isFutureDate, isPastDate, isPresentDate };
+export { getPoints, getRandomPoint };

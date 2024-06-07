@@ -50,7 +50,8 @@ const maxPoints = 8;
 const FilterType = {
   EVERYTHING: 'everything',
   FUTURE: 'future',
-  PAST: 'past'
+  PAST: 'past',
+  PRESENT:'present'
 };
 
 const SortType = {

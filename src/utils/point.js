@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 
 const isPointPast = (pointDate) => dayjs(pointDate.dateFrom).isBefore(dayjs());
 const isPointFuture = (pointDate) => dayjs(pointDate.dateFrom).isAfter(dayjs());
+const isPointPresent = (dateFrom, dateTo) => dayjs(dateFrom).isBefore(dayjs()) && dayjs(dateTo).isAfter(dayjs());
 const getDateTime = (date) => dayjs(date).format('DD/MM/YY hh:mm');
 const getDate = (date) => dayjs(date).format('DD MMM');
 
@@ -49,5 +50,4 @@ const getMinutes = (minutes) => {
   return minutes;
 };
 
-export { isPointFuture, isPointPast, getDateTime, getDate, getDays, getHours, getMinutes };
-
+export { isPointFuture, isPointPast,isPointPresent, getDateTime, getDate, getDays, getHours, getMinutes };

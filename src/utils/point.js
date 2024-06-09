@@ -50,4 +50,3 @@ const getMinutes = (minutes) => {
 };
 
 export { isPointFuture, isPointPast, getDateTime, getDate, getDays, getHours, getMinutes };
-

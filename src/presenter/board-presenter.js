@@ -4,7 +4,7 @@ import TripEventsView from '../view/trip-events-view.js';
 import NoPointView from '../view/no-point-view.js';
 import PointPresenter from './point-presenter.js';
 import PointNewPresenter from './point-new-presenter.js';
-import { SortType, FilterType, UserAction, UpdateType, TimeLimit } from '../mock/constants.js';
+import { SortType, FilterType, UserAction, UpdateType, TimeLimit } from '../constants.js';
 import { sorting } from '../utils/sorting.js';
 import { filter } from '../utils/filter.js';
 import LoadingView from '../view/loading-view.js';

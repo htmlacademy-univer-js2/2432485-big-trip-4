@@ -50,7 +50,8 @@ const maxPoints = 8;
 const FilterType = {
   EVERYTHING: 'everything',
   FUTURE: 'future',
-  PAST: 'past'
+  PAST: 'past',
+  PRESENT:'present'
 };
 
 const SortType = {
@@ -95,3 +96,4 @@ export {
   POINT_TYPES, OFFER_TITLES, DESCRIPTIONS, DESTINATIONS_NAMES, tripPrice, offerPrice, FilterType, SortType, picturesCount,
   maxPoints, UpdateType, UserAction, Method, Mode, AUTHORIZATION, END_POINT, TimeLimit
 };
+

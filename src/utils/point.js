@@ -1,8 +1,14 @@
 import dayjs from 'dayjs';
 
-const isPointPast = (pointDate) => dayjs(pointDate.dateFrom).isBefore(dayjs());
-const isPointFuture = (pointDate) => dayjs(pointDate.dateFrom).isAfter(dayjs());
-const getDateTime = (date) => dayjs(date).format('DD/MM/YY hh:mm');
+const isPointPast = (pointDateTo) => dayjs(pointDateTo).isBefore(dayjs(), 'day');
+const isPointFuture = (pointDateFrom) => dayjs(pointDateFrom).isAfter(dayjs(), 'day');
+const isPointPresent = (dateFrom, dateTo) => dayjs(dateFrom).isBefore(dayjs()) && dayjs(dateTo).isAfter(dayjs());
+const getDateTime = (date) => {
+  if (!date || !dayjs(date).isValid()) {
+    return '';
+  }
+  return dayjs(date).format('DD/MM/YY hh:mm');
+};
 const getDate = (date) => dayjs(date).format('DD MMM');
 
 const getDays = (days) => {
@@ -49,4 +55,5 @@ const getMinutes = (minutes) => {
   return minutes;
 };
 
-export { isPointFuture, isPointPast, getDateTime, getDate, getDays, getHours, getMinutes };
+export { isPointFuture, isPointPast,isPointPresent, getDateTime, getDate, getDays, getHours, getMinutes };
+

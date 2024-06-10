@@ -8,14 +8,15 @@ import he from 'he';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const BLANK_POINT = {
-  basePrice: 100,
-  dateFrom: dayjs(),
-  dateTo: dayjs().add(7, 'day'),
-  destination: 1,
+  basePrice: 0,
+  dateFrom: null,
+  dateTo: null,
+  destination: null,
   isFavorite: false,
   offers: [],
-  type: POINT_TYPES.TAXI,
+  type: POINT_TYPES.FLIGHT,
 };
+
 
 const renderPictures = (pictures) => {
   let result = '';
@@ -343,3 +344,4 @@ export default class EditFormView extends AbstractStatefulView {
     return point;
   };
 }
+
